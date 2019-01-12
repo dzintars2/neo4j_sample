@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="lv">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Neo4J DB</title>
+   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="{{ url_for('static', filename='d3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='neo4jd3.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='d3.css') }}">
+
+    <style>
+        body { padding-top: 5rem;}
+        
+        * {
+          margin: 0px;
+          padding: 0px;
+        }
+        main {font-size:14px;}
+        table.table tr td { font-size: 12px; }
+        table.table tr th { font-size: 12px; }
+        a.query {font-size:10px;}
+        #graph{
+            width:100%;
+            height:550px;
+        }
+    </style>
+
+    
+  </head>
+  <body>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Neo4J DB</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsNeo4j" aria-controls="navbarsNeo4j" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsNeo4j">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/generateData">Datu ģenerēšana</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/deleteData">Datu dzēšana</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/report1">Atskaite Nr.1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/report2">Atskaite Nr.2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/report3">Atskaite Nr.3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/report4">Atskaite Nr.4</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/report5">Atskaite Nr.5</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url}}" target="_blank">Neo4J Browser</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main role="main" class="container">
+      <div class="starter-template">
+        <p>{{saturs|safe}}</p>{% block showGraph %}{% endblock %}
+    </div>
+  </body>
+</html>
